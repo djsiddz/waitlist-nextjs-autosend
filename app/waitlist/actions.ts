@@ -37,7 +37,8 @@ export async function submitWaitlistForm(initialState: any, formData: FormData) 
     }
   }
   console.log("Ready to send email to CEO...");
-  // Step 2: Create a Contact on AutoSend for this user
+  // Step 2: Add this user to your DB or CRM. Then create a Contact on AutoSend
+
 
   // Step 3: Send email to yourself when the Waitlist form is submitted
   let emailErrors: Record<string, string[]> = {};
