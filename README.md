@@ -1,10 +1,10 @@
-# AutoSend Email Integration with Next.js
+# Waitlist Starter with Next.js & AutoSend API
 
-This is a sample project showcasing how to integrate [AutoSend](https://autosend.com/) with [Next.js](https://nextjs.org/) using [Shadcn UI](https://ui.shadcn.com/).
+This is a waitlist starter project that sends emails using [AutoSend API](https://autosend.com/) in a [Next.js](https://nextjs.org/) project using [Shadcn UI](https://ui.shadcn.com/).
 
 ## 📋 Overview
 
-This project showcases sending emails using AutoSend, triggered by a Form Submission:
+This project waitlists a user by creating a Contact on AutoSend, then sends a welcome email using AutoSend:
 
 1. **Form Submissions Internal Notification** - Automatically sent to you
 2. **Form Submission User Confirmation** - Automatically sent to the user

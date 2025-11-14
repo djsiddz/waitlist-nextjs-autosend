@@ -1,5 +1,4 @@
 'use server'
-import { format } from 'date-fns';
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
 import { demoRequestReceivedNotifyCEO, demoRequestReceivedNotifyUser } from '@/lib/email-templates';
@@ -10,16 +9,7 @@ const schema = z.object({
   }),
   name: z.string({
     error: 'Invalid Name',
-  }),
-  date: z.date({
-    error: 'Invalid Date',
-  }),
-  time: z.iso.time({
-    error: 'Invalid Time',
-  }),
-  feedback: z.string({
-    error: 'Invalid Feedback',
-  }),
+  })
 });
 
 const AUTOSEND_API_URL = 'https://api.autosend.com/v1/mails/send';
@@ -35,14 +25,9 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
 
   // Step 1: Validate the form data
   const rawFormData = Object.fromEntries(formData);
-  const selectedDate = new Date("" + rawFormData.date + " " + rawFormData.time);
-
   const validatedFields = schema.safeParse({
     email: rawFormData['email'],
     name: rawFormData['name'],
-    date: selectedDate,
-    time: rawFormData['time'],
-    feedback: rawFormData['feedback'],
   })
   // Return early if the form data is invalid
   if (!validatedFields.success) {
@@ -51,15 +36,7 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
       errors: z.prettifyError(validatedFields.error),
     }
   }
-
-  // Step 1.5: Format Date & Time to make it pretty for the email
-  const formattedDate = format(selectedDate, 'MMM d, yyyy');
-  const formattedTime = format(selectedDate, 'hh:mm a');
-  console.log("Validated Fields: ", validatedFields.data);
-  console.log("Formatted Date: ", formattedDate);
-  console.log("Formatted Time: ", formattedTime);
   console.log("Ready to send email to CEO...");
-
   // Step 2: Send email to yourself when the Request Demo form is submitted
   let emailErrors: Record<string, string[]> = {};
 
@@ -79,7 +56,7 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
           email: "ceo@ticktoes.com",
           name: "CEO, TickToes",
         },
-        subject: "TickToes Early Access & Demo Request Received 🚨",
+        subject: "Someone joined TickToes Waitlist 🥳",
         // Option 1: If you save your email templates on AutoSend, you can use the templateId here
         // templateId: "your_template_id",
         // Option 2: Send using raw HTML
@@ -87,9 +64,6 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
         dynamicData: {
           name: validatedFields.data.name,
           email: validatedFields.data.email,
-          date: formattedDate,
-          time: formattedTime,
-          feedback: validatedFields.data.feedback,
         },
         test: testEnv === 'true' // You can remove this completely in production, a nice utility given by AutoSend
       }),
@@ -132,7 +106,7 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
             email: validatedFields.data.email,
             name: validatedFields.data.name,
           },
-          subject: "Confirmed! Your TickToes Early Access & Demo Request has been received 🎉",
+          subject: "You're on the waitlist for TickToes 🎉",
           // Option 1: If you save your email templates on AutoSend, you can use the templateId here
           // templateId: "your_template_id",
           // Option 2: Send using raw HTML
@@ -140,9 +114,6 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
           dynamicData: {
             name: validatedFields.data.name,
             email: validatedFields.data.email,
-            date: formattedDate,
-            time: formattedTime,
-            feedback: validatedFields.data.feedback,
           },
           test: testEnv === 'true'
         }),

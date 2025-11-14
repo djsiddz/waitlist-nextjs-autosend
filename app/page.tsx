@@ -1,5 +1,7 @@
+import { SignupForm } from "@/components/signup-form";
+import { Badge } from "@/components/ui/badge";
+import { GiftIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -14,6 +16,7 @@ export default function Home() {
           priority
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <Badge className="mt-4" variant="outline"><GiftIcon /> Coming Soon</Badge>
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-balance text-black dark:text-zinc-50">
             Organize Chaos. Find Everything.
           </h1>
@@ -21,27 +24,7 @@ export default function Home() {
             <strong>TickToes</strong> keeps everything in order. From ideas, inspiration to all interactions online. Your private personal knowledge base.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <Link
-            className="flex h-12 w-full min-w-fit items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-            href="/signup"
-          >
-            <Image
-              className="dark:invert"
-              src="/logoipsum-379.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Get Early Access
-          </Link>
-          <Link
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="/signup"
-          >
-            Request Demo
-          </Link>
-        </div>
+        <SignupForm className="w-full border-none shadow-none" />
         <p className="text-xs text-muted-foreground">&copy; 2025 TickToes. All rights reserved. Stay curious 😎</p>
       </main>
     </div>

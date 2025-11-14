@@ -1,15 +1,18 @@
 {
-  "name": "nextjs-autosend-starter",
+  "name": "waitlist-nextjs-autosend",
   "version": "1.0.0",
   "private": true,
-  "description": "Sample Next.js application showcasing AutoSend email integration",
+  "description": "Sample Next.js application to create a waitlist using AutoSend email integration",
   "author": "Siddhesh Thadeshwar <siddhesht@outlook.in>",
   "license": "MIT",
   "keywords": [
     "next.js",
     "autosend",
     "email",
-    "integration"
+    "integration",
+    "waitlist",
+    "waitlist-page",
+    "starter-kit"
   ],
   "scripts": {
     "dev": "next dev",

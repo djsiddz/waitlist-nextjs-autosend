@@ -15,13 +15,12 @@ export default function Page() {
                 />
                 <h1 className="text-2xl font-bold mb-4">Thank you for your interest in TickToes!</h1>
                 <div>
-                    <p className="text-muted-foreground mb-4">You will receive an email confirming the receipt of your request shortly.</p>
-                    <p className="text-muted-foreground">We can&apos;t wait to see you soon!</p>
+                    <p className="text-muted-foreground mb-4">You will receive an email confirming you on the waitlist shortly.</p>
                 </div>
                 <div>
                     <Link
                         className="flex h-12 w-fit mb-4 items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-                        href="https://x.com/intent/tweet?text=Checkout%20this%20amazing%20Next.js%20and%20AutoSend%20starter%20repo&url=https://github.com/djsiddz&via=super__siddy">
+                        href="https://x.com/intent/tweet?text=Checkout%20this%20amazing%20Next.js%20and%20AutoSend%20starter%20repo&url=https://github.com/djsiddz/waitlist-nextjs-autosend&via=super__siddy">
                         Tell your friends about us!
                     </Link>
                     <p className="text-muted-foreground mb-4">You may close this page or <Link className="text-sm text-muted-foreground hover:text-foreground transition-colors mb-4" href="/">Go Back Home</Link>.</p>
