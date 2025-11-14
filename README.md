@@ -30,13 +30,12 @@ For a detailed walkthrough of this setup, check out [this article](https://super
 ## 📁 Project Structure
 
 ```text
-request-demo-nextjs-autosend/
+waitlist-nextjs-autosend/
 ├── app/
-│   ├── signup/
+│   ├── waitlist/
 │   │   ├── thank-you/
-│   │   │   └── page.tsx         # /signup/thank-you page (Success page)
-│   │   ├── actions.ts           # Server Actions
-│   │   └── page.tsx             # /signup page
+│   │   │   └── page.tsx         # /waitlist/thank-you page (Success page)
+│   │   └── actions.ts           # Server Actions
 │   ├── favicon.ico              # Site favicon
 │   ├── globals.css              # Global styles
 │   ├── layout.tsx               # Root layout component
@@ -54,7 +53,7 @@ request-demo-nextjs-autosend/
 │   │   ├── select.tsx
 │   │   ├── separator.tsx
 │   │   └── textarea.tsx
-│   └── signup-form.tsx          # Sign-up form UI
+│   └── waitlist-form.tsx          # Waitlist form UI
 ├── lib/
 │   ├── email-templates.ts       # Local HTML email templates
 │   └── utils.ts                 # Utility functions

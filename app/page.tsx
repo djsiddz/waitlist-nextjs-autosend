@@ -1,4 +1,4 @@
-import { SignupForm } from "@/components/signup-form";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { Badge } from "@/components/ui/badge";
 import { GiftIcon } from "lucide-react";
 import Image from "next/image";
@@ -24,7 +24,7 @@ export default function Home() {
             <strong>TickToes</strong> keeps everything in order. From ideas, inspiration to all interactions online. Your private personal knowledge base.
           </p>
         </div>
-        <SignupForm className="w-full border-none shadow-none" />
+        <WaitlistForm className="w-full border-none shadow-none" />
         <p className="text-xs text-muted-foreground">&copy; 2025 TickToes. All rights reserved. Stay curious 😎</p>
       </main>
     </div>

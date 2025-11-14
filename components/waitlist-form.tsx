@@ -11,15 +11,15 @@ import {
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useActionState, useEffect } from "react";
-import { submitDemoRequestForm } from "@/app/signup/actions";
+import { submitWaitlistForm } from "@/app/waitlist/actions";
 import { toast } from "sonner";
 
 const initialState = {
   errors: {},
 }
 
-export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
-  const [state, formAction, pending] = useActionState(submitDemoRequestForm, initialState);
+export function WaitlistForm({ ...props }: React.ComponentProps<typeof Card>) {
+  const [state, formAction, pending] = useActionState(submitWaitlistForm, initialState);
 
   useEffect(() => {
     if (!state?.errors) return;

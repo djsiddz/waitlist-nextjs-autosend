@@ -15,7 +15,7 @@ const schema = z.object({
 const AUTOSEND_API_URL = 'https://api.autosend.com/v1/mails/send';
 
 
-export async function submitDemoRequestForm(initialState: any, formData: FormData) {
+export async function submitWaitlistForm(initialState: any, formData: FormData) {
   // Step 0: Get ENV details
   const apiKey = process.env.AUTOSEND_API_KEY;
   const testEnv = process.env.TEST_ENV; //true for Dev or false for Production
@@ -37,7 +37,9 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
     }
   }
   console.log("Ready to send email to CEO...");
-  // Step 2: Send email to yourself when the Request Demo form is submitted
+  // Step 2: Create a Contact on AutoSend for this user
+
+  // Step 3: Send email to yourself when the Waitlist form is submitted
   let emailErrors: Record<string, string[]> = {};
 
   try {
@@ -87,7 +89,7 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
     emailErrors._form.push(`Failed to send notification email: ${errorMessage}`);
   }
 
-  // Step 3: Trigger additional email to the user confirming the request has been received
+  // Step 4: Trigger additional email to the user confirming their position on the waitlist
   // Only attempt if CEO email was successful (no errors so far)
   if (Object.keys(emailErrors).length === 0) {
     try {
@@ -145,5 +147,5 @@ export async function submitDemoRequestForm(initialState: any, formData: FormDat
   }
 
   // Only redirect if there are no errors
-  redirect('/signup/thank-you');
+  redirect('/waitlist/thank-you');
 }
