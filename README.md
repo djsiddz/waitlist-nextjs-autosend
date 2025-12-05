@@ -21,10 +21,10 @@ For a detailed walkthrough of this setup, check out [this article](https://super
 
 - **Runtime**: Node.js v22.16.0
 - **Package Manager**: pnpm v10.20.0
-- **Framework**: Next.js v16.0.1
-- **React**: v19.2.0
-- **Tailwind CSS**: v4
-- **Zod**: v4
+- **Framework**: Next.js v16.0.7
+- **React**: v19.2.1
+- **Tailwind CSS**: v4.1.17
+- **Zod**: v4.1.13
 - **Email Service**: AutoSend (API integration)
 
 ## 📁 Project Structure
